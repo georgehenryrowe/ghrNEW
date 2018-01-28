@@ -37,15 +37,15 @@
 // // ------ font-size ------
 // ----------------------------------------
 
-$body-font-size: 106.25%;  // approx. 17px note: if you change this you must adjust the $base-font-size;
+$body-font-size: 110%;  // approx. 17px note: if you change this you must adjust the $base-font-size;
 $base-font-size: 17px;     // for mixins that need a px value to function
 
 // ----------------------------------------
 // // ------ colors ------
 // ----------------------------------------
 
-$primary: #0088cc;      // blue
-$secondary: #005580;    // dark-blue
+$primary: #000000;      // blue
+$secondary: #575757;    // dark-blue
 $black: #272727;        // dark-grey
 $gray: #808080;
 $light-gray: #e5e5e5;

@@ -1,12 +1,13 @@
 /*  TYPOGRAPHY */
 /*  Sets font styles for entire site. */
-@import url('https://fonts.googleapis.com/css?family=Merriweather');
+// @import url('https://fonts.googleapis.com/css?family=Merriweather');
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
 
 body {
-    font-family: 'Merriweather', serif;
+    font-family: 'Libre Baskerville', serif;
     font-size: $body-font-size;
     line-height: $body-line-height;
-    color: $black;
+    color: $white;
     background: $body-bg;
 }
 
@@ -59,7 +60,7 @@ a {
 
 a:hover {
     color: $secondary;
-    text-decoration: underline;
+    // text-decoration: underline;
 }
 
 a img {

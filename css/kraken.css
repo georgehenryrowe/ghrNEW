@@ -28,7 +28,7 @@
     4px, 5px, 8px, 10px, 11px, 14px, 15px, 17px (base), 20px, 23px, 26px, 30px, 34px, 51px, 68px, 85px, 102px
 
 */
-@import url("https://fonts.googleapis.com/css?family=Merriweather");
+@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville");
 .parent {
   position: relative; }
 
@@ -216,10 +216,10 @@ a:hover, a:active {
 /*  TYPOGRAPHY */
 /*  Sets font styles for entire site. */
 body {
-  font-family: 'Merriweather', serif;
-  font-size: 106.25%;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 110%;
   line-height: 1.47059;
-  color: #272727;
+  color: #ffffff;
   background: #ffffff; }
 
 p {
@@ -251,12 +251,11 @@ p {
 /*  Links
  *  Hyperlink styling */
 a {
-  color: #0088cc;
+  color: #000000;
   text-decoration: none; }
 
 a:hover {
-  color: #005580;
-  text-decoration: underline; }
+  color: #575757; }
 
 a img {
   border: none;
@@ -358,14 +357,14 @@ sub {
 /*  Highlighting colors */
 ::-moz-selection {
   color: #ffffff;
-  background: #0088cc; }
+  background: #000000; }
 ::selection {
   color: #ffffff;
-  background: #0088cc; }
+  background: #000000; }
 
 ::-moz-selection {
   color: #ffffff;
-  background: #0088cc; }
+  background: #000000; }
 
 /*  Blockquotes */
 blockquote {
@@ -412,13 +411,13 @@ a .btn:hover {
   text-decoration: none; }
 
 .btn-blue {
-  background-color: #0088cc;
-  border-color: #0088cc; }
+  background-color: #000000;
+  border-color: #000000; }
 
 .btn-blue:hover,
 a .btn-blue:hover {
-  background-color: #005580;
-  border-color: #005580; }
+  background-color: #575757;
+  border-color: #575757; }
 
 .btn-large {
   padding: .588235294em .882352941em;
