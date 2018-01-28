@@ -38,6 +38,8 @@
     <meta name="msapplication-TileImage" content="img/ms-touch-icon.png">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
 
 </head>
 
@@ -50,16 +52,23 @@
                 Did you know that your web browser is a bit old? Some of the content on this site might not work right as a result. <a href="http://whatbrowser.org">Upgrade your browser</a> for a faster, better, and safer web experience.
             </section>
         <![endif]-->
+    <div id="sketch-holder"></div>
 
-
-    <section class="container">
+    <header>
         <div class="home_title">
-            <h1 class="h2">George Henry Rowe</h1>
-            <p class="social">Github</p>
-            <p class="social">Twitter</p>
-            <p class="social">Instagram</p>
-            <p class="social">Contact</p>
+            <h1 class="h2">
+                <a href="#top">George Henry Rowe</a>
+            </h1>
+            <div class="menu">
+                <a href="#producer">Producer</a> //
+                <a href="#artist">Generative</a> //
+                <a href="#web">Web</a>
+            </div>
         </div>
+
+    </header>
+
+    <section id="top" class="container">
         <div class="topSpace">
             <div class="section1">
                 <p>
@@ -67,10 +76,11 @@
             </div>
             <div class="section2">
                 <p>
-                    <a href="#artist">Generative artist</a> creating strange patterns with audio and other data.</p>
+                    <a href="#artist">Generative</a> artist creating strange patterns with audio and other data.</p>
             </div>
             <div class="section3">
-                <p>Occasional web designer.</p>
+                <p>Occasional
+                    <a href="#web">web</a> designer.</p>
             </div>
         </div>
 
@@ -79,16 +89,28 @@
         </div>
 
         <div id="artist">
-            <p>Currently working on a top secret game project. More details once it has been announced.</p>
+            <p>I very much enjoy making intereting visuals things, mainly using Processing. Audioreactive screens for concerts,
+                plotter drawings, live depth camera feed installations - all that jazz.</p>
+        </div>
+        <div id="web">
+            <p>I very much enjoy making intereting visuals things, mainly using Processing. Audioreactive screens for concerts,
+                plotter drawings, live depth camera feed installations - all that jazz.</p>
         </div>
 
     </section>
+
+    <footer>
+        <div class="social">
+            <p>Github - Instagram - Twitter - Email</p>
+        </div>
+    </footer>
 
 
 
     <!-- Javascript -->
     <!-- In the footer for better performance -->
     <script src="js/kraken.js"></script>
+    <script src="js/sketch.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <!-- (Via HTML5 Boilerplate: http://html5boilerplate.com/) -->

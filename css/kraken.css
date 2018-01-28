@@ -691,21 +691,30 @@ select:focus {
 .hero-condensed {
   padding: 0.82353em; }
 
+#sketch-holder {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1; }
+
 .topSpace {
   margin: 50% auto 0 auto; }
 
 .home_title {
   position: fixed;
+  top: 10px;
   left: 20px; }
 
 .social {
-  position: static;
-  top: 40px;
-  float: left;
-  margin: -10px 10px 0px 0; }
+  position: fixed;
+  bottom: 20px;
+  left: 20px; }
 
 #producer {
   margin: 2000px 0 0 0; }
 
 #artist {
+  margin: 3000px 0 0 0; }
+
+#web {
   margin: 4000px 0 0 0; }
