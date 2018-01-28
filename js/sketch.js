@@ -1,5 +1,4 @@
-var running;
-
+var changingValue;
 function setup() {
     var canvas = createCanvas(windowWidth, windowHeight, WEBGL);
     canvas.parent('sketch-holder');
@@ -19,6 +18,8 @@ function draw() {
 
     if (changingValue < 0) {
         changingValue = 0;
+        noLoop();
+        console.log("stopped");
     }
 
     //useful drawing area stuff
@@ -51,16 +52,10 @@ function draw() {
             pop();
         }
     }
-
 }
 
 function mouseClicked() {
-    if (running == false) {
-        running = true;
-        loop();
-    } else {
-        running = false;
-        noLoop();
-    }
-    console.log(running);
+    // loop();
+    // changingValue++;
+    // console.log("running");
 }
