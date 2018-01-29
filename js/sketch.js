@@ -1,4 +1,4 @@
-var changingValue;
+var changingValue, sizeOfThing;
 var scrollMove = 1;
 
 function setup() {
@@ -6,6 +6,7 @@ function setup() {
     canvas.parent('sketch-holder');
     colorMode(HSB, 360, 100, 100, 100);
     var running = false;
+    sizeOfThing = height/10;
     // blendMode(BURN);
 }
 
@@ -24,9 +25,7 @@ function draw() {
         // console.log("stopped");
     }
 
-    //useful drawing area stuff
     // var sizeOfThing = windowWidth*0.1;
-    var sizeOfThing = 150;
     var numberOfThings = 2000;
     var gapBetweenThings = sizeOfThing;
 
@@ -39,35 +38,39 @@ function draw() {
     rotate(changingValue * 0.01);
     translate(-width / 2, -height / 2);
 
+    var scrollPlusSize = sizeOfThing + (scrollMove * 0.01);
+
     for (var x = 0; x < numberOfThings; x += gapBetweenThings) {
         for (var y = 0; y < numberOfThings; y += gapBetweenThings) {
             var d = dist(width * 0.5, height * 0.5, x, y);
             var maxDist = dist(0, 0, width * 0.5, height * 0.5);
             //var timeDelay = map(d, 0, maxDist, 1000, 2000);
             push();
-            fill(d / 2*map(mouseX,0,width,0.1,2), 100, 100);
+            fill(d / 2 * map(mouseX, 0, width, 0.1, 2), 100, 100);
             translate(x, y, changingValue * (d * 0.01));
             rotateX(changingValue * (d * 0.0001));
             rotateY(changingValue * (d * 0.0002));
             rotateZ(changingValue * (d * 0.0001));
-            box(sizeOfThing+(scrollMove*0.01));
+            box(scrollPlusSize);
             pop();
         }
     }
 }
 
-function mouseClicked() {
-    // loop();
-    // changingValue++;
-    // console.log("running");
-}
+// function mouseClicked() {
+//     // loop();
+//     // changingValue++;
+//     // console.log("running");
+// }
 
 function mouseWheel(event) {
-    
-  print(event.delta);
-  scrollMove -= event.delta;
-  //move the square according to the vertical scroll amount
-  // pos += event.delta;
-  //uncomment to block page scrolling
-  //return false;
+    // print(event.delta);
+    scrollMove -= event.delta;
+}
+
+function keyReleased() {
+    if (keyCode == 83) {
+        save('myCanvas.png');
+        console.log("Save");
+    }
 }

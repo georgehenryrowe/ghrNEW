@@ -220,7 +220,7 @@ body {
   font-size: 110%;
   line-height: 1.47059;
   color: #ffffff;
-  background: #ffffff; }
+  background: #575757; }
 
 p {
   margin-bottom: 1.529411765em; }
@@ -719,4 +719,8 @@ select:focus {
 
 #web {
   margin: 4000px 0 0 0;
-  padding: 200px 0 200px 0; }
+  padding: 200px 0 400px 0; }
+
+*:focus {
+  outline: none;
+  outline: 0; }
