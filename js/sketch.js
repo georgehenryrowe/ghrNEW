@@ -1,4 +1,6 @@
 var changingValue;
+var scrollMove = 1;
+
 function setup() {
     var canvas = createCanvas(windowWidth, windowHeight, WEBGL);
     canvas.parent('sketch-holder');
@@ -19,7 +21,7 @@ function draw() {
     if (changingValue < 0) {
         changingValue = 0;
         // noLoop();
-        console.log("stopped");
+        // console.log("stopped");
     }
 
     //useful drawing area stuff
@@ -46,9 +48,9 @@ function draw() {
             fill(d / 2*map(mouseX,0,width,0.1,2), 100, 100);
             translate(x, y, changingValue * (d * 0.01));
             rotateX(changingValue * (d * 0.0001));
-            rotateX(changingValue * (d * 0.0001));
+            rotateY(changingValue * (d * 0.0002));
             rotateZ(changingValue * (d * 0.0001));
-            box(sizeOfThing);
+            box(sizeOfThing+(scrollMove*0.01));
             pop();
         }
     }
@@ -58,4 +60,14 @@ function mouseClicked() {
     // loop();
     // changingValue++;
     // console.log("running");
+}
+
+function mouseWheel(event) {
+    
+  print(event.delta);
+  scrollMove -= event.delta;
+  //move the square according to the vertical scroll amount
+  // pos += event.delta;
+  //uncomment to block page scrolling
+  //return false;
 }
