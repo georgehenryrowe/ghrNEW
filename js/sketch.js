@@ -18,14 +18,14 @@ function draw() {
 
     if (changingValue < 0) {
         changingValue = 0;
-        noLoop();
+        // noLoop();
         console.log("stopped");
     }
 
     //useful drawing area stuff
     // var sizeOfThing = windowWidth*0.1;
     var sizeOfThing = 150;
-    var numberOfThings = 1600;
+    var numberOfThings = 2000;
     var gapBetweenThings = sizeOfThing;
 
     //the golden ratio
@@ -43,7 +43,7 @@ function draw() {
             var maxDist = dist(0, 0, width * 0.5, height * 0.5);
             //var timeDelay = map(d, 0, maxDist, 1000, 2000);
             push();
-            fill(d / 2, 100, 100);
+            fill(d / 2*map(mouseX,0,width,0.1,2), 100, 100);
             translate(x, y, changingValue * (d * 0.01));
             rotateX(changingValue * (d * 0.0001));
             rotateX(changingValue * (d * 0.0001));
