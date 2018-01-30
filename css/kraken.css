@@ -232,7 +232,7 @@ p {
 /*  Sizes
  *  For smaller and larger text */
 .text-small {
-  font-size: .882352941em;
+  font-size: .6em;
   line-height: 1.533333333; }
 
 .text-tall {

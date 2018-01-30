@@ -1,13 +1,15 @@
 var changingValue, sizeOfThing;
 var scrollMove = 1;
+var multiplierGap = 1;
+var multiplier = 1;
+
 
 function setup() {
     var canvas = createCanvas(windowWidth, windowHeight, WEBGL);
     canvas.parent('sketch-holder');
     colorMode(HSB, 360, 100, 100, 100);
     var running = false;
-    sizeOfThing = height/10;
-    // blendMode(BURN);
+    sizeOfThing = height / 10;
 }
 
 function draw() {
@@ -21,13 +23,11 @@ function draw() {
 
     if (changingValue < 0) {
         changingValue = 0;
-        // noLoop();
-        // console.log("stopped");
     }
 
     // var sizeOfThing = windowWidth*0.1;
     var numberOfThings = 2000;
-    var gapBetweenThings = sizeOfThing;
+    var gapBetweenThings = sizeOfThing*multiplier;
 
     //the golden ratio
     var goldenRatio = (1 + sqrt(5)) / 2;
@@ -57,12 +57,6 @@ function draw() {
     }
 }
 
-// function mouseClicked() {
-//     // loop();
-//     // changingValue++;
-//     // console.log("running");
-// }
-
 function mouseWheel(event) {
     // print(event.delta);
     scrollMove -= event.delta;
@@ -73,4 +67,20 @@ function keyReleased() {
         save('myCanvas.png');
         console.log("Save");
     }
+    if (keyCode == 75){
+        noLoop();
+    }
+    if (keyCode == 76){
+        loop();
+    }
+    if (keyCode == 187){
+        multiplier-=0.1;
+    }
+    if (keyCode == 189){
+        multiplier+=0.1;
+    }
+}
+
+function mousePressed() {
+
 }
