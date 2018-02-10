@@ -3,6 +3,7 @@ var scrollMove = 1;
 var multiplierGap = 1;
 var multiplier = 1;
 var pattern = 1;
+var numberOfPatterns = 6;
 
 
 function setup() {
@@ -66,9 +67,24 @@ function draw() {
                 rect(0, 0, scrollPlusSize, scrollPlusSize);
                 rect(-100, -100, scrollPlusSize, scrollPlusSize);
                 rect(100, 100, scrollPlusSize, scrollPlusSize);
-            } else if (pattern = 5) {
-                stroke((x * 0.25) * map(mouseX, 0, width, 0.1, 2), 100, 100)
-                line(0,0,width+scrollPlusSize,height+scrollPlusSize);
+            } else if (pattern == 5) {
+                stroke((x * 0.25) * map(mouseX, 0, width, 0.1, 2), 100, 100);
+                line(0, 0, width + scrollPlusSize, height + scrollPlusSize);
+            } else if (pattern == 6) {
+                noFill();
+                stroke(d / 2 * map(mouseX, 0, width, 0.1, 2), 100, 100);
+                box(scrollPlusSize);
+                rotate(radians(45));
+                box(scrollPlusSize*goldenRatio);
+                // noStroke();
+                // noFill();
+                // fill((x * 0.25) * map(mouseX, 0, width, 0.1, 1), 100, 100);
+                // beginShape();
+                // vertex(-x, -y);
+                // vertex(x*2, y*2);
+                // vertex(x + scrollPlusSize, y + scrollPlusSize);
+                // // vertex(x - scrollPlusSize * 10, y - scrollPlusSize * 10);
+                // endShape(CLOSE);
             }
             pop();
         }
@@ -97,13 +113,20 @@ function keyReleased() {
     if (keyCode == 189) {
         multiplier += 0.1;
     }
-    if (keyCode == 189) {
+    if (keyCode == 189) { 
         multiplier += 0.1;
     }
     if (keyCode == 67) {
         pattern++;
-        if (pattern > 5) {
+        if (pattern > numberOfPatterns) {
             pattern = 1;
         }
+    }
+}
+
+function mouseReleased() {
+    pattern++;
+    if (pattern > numberOfPatterns) {
+        pattern = 1;
     }
 }
