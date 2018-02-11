@@ -60,6 +60,7 @@ function draw() {
                 box(scrollPlusSize);
             } else if (pattern == 3) {
                 noFill();
+                strokeWeight(1);
                 stroke(200, y * 0.25, map(mouseX, 0, width, 10, 100), 100, 100);
                 box(scrollPlusSize);
             } else if (pattern == 4) {
@@ -68,6 +69,7 @@ function draw() {
                 rect(-100, -100, scrollPlusSize, scrollPlusSize);
                 rect(100, 100, scrollPlusSize, scrollPlusSize);
             } else if (pattern == 5) {
+                strokeWeight(1);
                 stroke((x * 0.25) * map(mouseX, 0, width, 0.1, 2), 100, 100);
                 line(0, 0, width + scrollPlusSize, height + scrollPlusSize);
             } else if (pattern == 6) {
