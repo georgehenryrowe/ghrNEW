@@ -39,15 +39,15 @@ function draw() {
     var changingValue = amplitude * cos(TWO_PI * frameCount / period);
 
     fft.getByteTimeDomainData(waveform);
-    rotateZ(frameCount*0.01);
+    // rotateZ(frameCount*0.01);
     translate(-width / 2, -height / 2);
 
     stroke(mouseColour, 100, 100);
     noFill();
     beginShape();
     for (var i = 0; i < waveform.length; i++) {
-        var x = map(i, 0, waveform.length, 0, width/2);
-        var y = map(waveform[i], 0, 255, height/2, 0);
+        var x = map(i, 0, waveform.length, 0, width);
+        var y = map(waveform[i], 0, 255, height, 0);
         vertex(x, y);
     }
     endShape();
