@@ -1,4 +1,6 @@
 fftSize = 2048;
+var randomNumbers = [];
+var increaser = 0;
 
 // setup
 function setup() {
@@ -15,8 +17,12 @@ function setup() {
     fft = FFT(fftSize);
     waveform = new Uint8Array(fft.frequencyBinCount);
 
+    for (var i = 0; i < 100; i++) {
+        randomNumbers[i] = int(random(10));
+    };
+
     bass = FM('bass')
-        .note.seq([0, 0, 0, 7, 14, 13].rnd(), [1 / 8, 1 / 16].rnd(1 / 16, 2))
+        .note.seq([1, 0, 5, 4, 14, 13].rnd(), [1 / 8, 1 / 16].rnd(1 / 16, 2))
 
     rhodes = Synth('rhodes', {
             amp: .35
@@ -26,12 +32,13 @@ function setup() {
 
     frameRate(30);
     strokeWeight(1);
+
 }
 
 // draw
 function draw() {
 
-    var mouseColour = map(mouseX,0,width,0,360);
+    // var mouseColour = map(mouseX, 0, width, 0, 360);
 
     //for generating a nice sine wave
     var amplitude = 200;
@@ -42,7 +49,7 @@ function draw() {
     // rotateZ(frameCount*0.01);
     translate(-width / 2, -height / 2);
 
-    stroke(mouseColour, 100, 100);
+    stroke(increaser, 100, 100);
     noFill();
     beginShape();
     for (var i = 0; i < waveform.length; i++) {
@@ -51,6 +58,14 @@ function draw() {
         vertex(x, y);
     }
     endShape();
+
+    increaser++;
+
+    if (increaser > 360) {
+        increaser = 0;
+    }
+
+    // console.log(increaser);
 }
 
 function keyReleased() {
@@ -58,4 +73,10 @@ function keyReleased() {
         save('myCanvas.png');
         console.log("Save");
     }
+}
+
+function mouseReleased() {
+    for (var i = 0; i < 100; i++) {
+        randomNumbers[i] = int(random(20));
+    };
 }
