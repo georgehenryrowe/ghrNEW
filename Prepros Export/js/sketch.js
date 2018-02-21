@@ -1,19 +1,19 @@
+// define some variables
 var changingValue, sizeOfThing;
 var scrollMove = 1;
-var multiplierGap = 1;
 var multiplier = 1;
 var pattern = 1;
 var numberOfPatterns = 6;
 
-
+// setup
 function setup() {
     var canvas = createCanvas(windowWidth, windowHeight, WEBGL);
     canvas.parent('sketch-holder');
     colorMode(HSB, 360, 100, 100, 100);
-    var running = false;
     sizeOfThing = height / 10;
 }
 
+// draw
 function draw() {
 
     background(30);
@@ -60,6 +60,7 @@ function draw() {
                 box(scrollPlusSize);
             } else if (pattern == 3) {
                 noFill();
+                strokeWeight(1);
                 stroke(200, y * 0.25, map(mouseX, 0, width, 10, 100), 100, 100);
                 box(scrollPlusSize);
             } else if (pattern == 4) {
@@ -68,23 +69,14 @@ function draw() {
                 rect(-100, -100, scrollPlusSize, scrollPlusSize);
                 rect(100, 100, scrollPlusSize, scrollPlusSize);
             } else if (pattern == 5) {
+                strokeWeight(1);
                 stroke((x * 0.25) * map(mouseX, 0, width, 0.1, 2), 100, 100);
                 line(0, 0, width + scrollPlusSize, height + scrollPlusSize);
             } else if (pattern == 6) {
                 noFill();
                 stroke(d / 2 * map(mouseX, 0, width, 0.1, 2), 100, 100);
-                box(scrollPlusSize);
-                rotate(radians(45));
-                box(scrollPlusSize*goldenRatio);
-                // noStroke();
-                // noFill();
-                // fill((x * 0.25) * map(mouseX, 0, width, 0.1, 1), 100, 100);
-                // beginShape();
-                // vertex(-x, -y);
-                // vertex(x*2, y*2);
-                // vertex(x + scrollPlusSize, y + scrollPlusSize);
-                // // vertex(x - scrollPlusSize * 10, y - scrollPlusSize * 10);
-                // endShape(CLOSE);
+                strokeWeight(0.5);
+                sphere(scrollPlusSize/2,6,6);
             }
             pop();
         }
@@ -124,9 +116,9 @@ function keyReleased() {
     }
 }
 
-function mouseReleased() {
-    pattern++;
-    if (pattern > numberOfPatterns) {
-        pattern = 1;
-    }
-}
+// function mouseReleased() {
+//     pattern++;
+//     if (pattern > numberOfPatterns) {
+//         pattern = 1;
+//     }
+// }
