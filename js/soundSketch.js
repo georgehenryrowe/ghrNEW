@@ -56,6 +56,7 @@ function draw() {
             })
             .chord.seq(Rndi(randomNumbers[5], randomNumbers[6], randomNumbers[7]), 1)
             .fx.add(Delay())
+            // .fx.add(Schizo({ chance:.5, rate:ms(250), length:ms(1000) }))
             .fx.add(Flanger(0.1, 0.5, 30));
 
         hasBeenRun = false;
