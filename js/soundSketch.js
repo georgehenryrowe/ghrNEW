@@ -1,7 +1,7 @@
 fftSize = 2048;
 var randomNumbers = [];
 var increaser = 0;
-var hasBeenRun = false;
+var hasBeenRun = true;
 
 // setup
 function setup() {
@@ -15,6 +15,8 @@ function setup() {
     // drums = EDrums('----------------');
     follow = Follow(drums);
 
+    a = Cowbell().play(Rndf(5500, 44100), 1/4).amp(0.01);
+
     fft = FFT(fftSize);
     waveform = new Uint8Array(fft.frequencyBinCount);
 
@@ -26,14 +28,21 @@ function setup() {
 function draw() {
 
     // var mouseColour = map(mouseX, 0, width, 0, 360);
-    background( follow.getValue() * 255 );
-    
+    // background(follow.getValue() * 100);
+    push();
+    noStroke();
+    fill(30,5);
+    rect(0,0,width,height);
+
+    pop();
+
     //for generating a nice sine wave
     var amplitude = 200;
     var period = 2000;
     var changingValue = amplitude * cos(TWO_PI * frameCount / period);
 
     if (hasBeenRun == true) {
+
         for (var i = 0; i < 100; i++) {
             randomNumbers[i] = int(random(14));
         };
@@ -53,12 +62,22 @@ function draw() {
 
     }
 
+    push();
+    strokeWeight(follow.getValue()*10+0.01);
+    stroke(increaser,100,100);
+    // translate(width/2,height/2);
+    rotateX(frameCount*0.01);
+    rotateY(frameCount*0.01);
+    rotateZ(frameCount*0.01);
+    box(200+(follow.getValue()*200)+map(mouseX, 0, width, 0, 300));
+    pop();
+
     fft.getByteTimeDomainData(waveform);
     // rotateZ(frameCount*0.01);
     translate(-width / 2, -height / 2);
 
-    stroke(map(mouseX,0,width,0,320), 100, 100);
-    strokeWeight(fftSize*0.005);
+    stroke(map(mouseX, 0, width, 0, 320), 100, 100);
+    strokeWeight(2);
     noFill();
     beginShape();
     for (var i = 0; i < waveform.length; i++) {
@@ -85,9 +104,9 @@ function keyReleased() {
 }
 
 function mouseReleased() {
-    // for (var i = 0; i < 100; i++) {
-    //     randomNumbers[i] = int(random(14));
-    // };
-    hasBeenRun = true;
-    console.log("RUN");
+    // hasBeenRun = true;
+    for (var i = 0; i < 100; i++) {
+        randomNumbers[i] = int(random(14));
+    };
+    console.log(randomNumbers[1]);
 }
